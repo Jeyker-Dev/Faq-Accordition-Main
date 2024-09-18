@@ -5,6 +5,9 @@ module.exports = {
     require("./src/lib/mypreset"),
   ],
   theme: {
+    fontFamily: {
+      worksans: ["Work Sans", 'sans-serif'],
+    },
     extend: {},
   },
   plugins: [],
