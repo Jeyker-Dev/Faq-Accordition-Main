@@ -6,6 +6,7 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <link rel="stylesheet" href="./dist/output.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <title>Frontend Mentor | FAQ accordion</title>
 </head>
 <body class="min-h-screen">
@@ -17,19 +18,30 @@
   <!--  Here End Header Image Background -->
 
     <!--  Main Content -->
-      <main class="bg-red-40 absolute w-full h-full">
+      <main class="bg-red-60 absolute w-full h-full">
 
         <!--  FAQ Accordion -->
-        <div class="w-9/12 mx-auto h-96 bg-white relative top-0">
-          
-          <div class="flex justify-start items-center gap-2">
+        <div x-data="{ open:false }" class="w-10/12 md:w-7/12 xl:w-5/12 2xl:w-4/12 mx-auto h-96 bg-white relative -top-20 py-4 z-10 rounded-md">
 
-            <!--  Image Star and Title FAQs -->
+          <!--  Image Star and Title FAQs -->
+          <div class="flex justify-start items-center gap-2 ml-2 md:ml-8 md:mt-4">
+
             <img src="./assets/images/icon-star.svg" alt="Image Star" class="w-6 h-6 object-cover object-center">
             <h2 class="text-2xl md:text-4xl text-black font-worksans font-bold">FAQs</h2>
 
-            
           </div>
+          <!--  Here End Image Star and Title FAQs -->
+
+            <!--  First Question -->
+            <div class="">
+
+              <button x-on:click.away="open ! open" class="flex justify-items-end items-center w-full mt-6">
+                <span class="text-sm text-start text-black font-worksans font-bold text-balance md:text-wrap w-9/12 md:w-10/12 ml-6">What Is Frontend Mentor and How It Will Help Me?</span>
+                <img src="./assets/images/icon-plus.svg" alt="Image Icon Plus" class="w-6 h6">
+              </button>
+
+            </div>
+            <!--  Here End First Question -->
         </div>
         <!--  Here End FAQ Accordion -->
       </main>
