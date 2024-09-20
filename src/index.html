@@ -21,7 +21,7 @@
       <main class="bg-red-60 absolute w-full h-full">
 
         <!--  FAQ Accordion -->
-        <div x-data="{ open:false }" class="w-10/12 md:w-7/12 xl:w-5/12 2xl:w-4/12 mx-auto h-96 bg-white relative -top-20 py-4 z-10 rounded-md">
+        <div x-data="{ open: false, active: false, open_2: false, active_2: false, open_3: false, active_3: false, open_4: false, active_4: false }" class="w-10/12 md:w-7/12 xl:w-5/12 2xl:w-4/12 mx-auto h-96 bg-white relative -top-20 py-4 z-10 rounded-md">
 
           <!--  Image Star and Title FAQs -->
           <div class="flex justify-start items-center gap-2 ml-2 md:ml-8 md:mt-4">
@@ -33,15 +33,80 @@
           <!--  Here End Image Star and Title FAQs -->
 
             <!--  First Question -->
-            <div class="">
-
-              <button x-on:click.away="open ! open" class="flex justify-items-end items-center w-full mt-6">
-                <span class="text-sm text-start text-black font-worksans font-bold text-balance md:text-wrap w-9/12 md:w-10/12 ml-6">What Is Frontend Mentor and How It Will Help Me?</span>
-                <img src="./assets/images/icon-plus.svg" alt="Image Icon Plus" class="w-6 h6">
+            <div>
+              <button 
+                x-on:click="open = !open; active = !active" 
+                class="flex justify-items-end items-center w-full mt-6"
+              >
+                <span class="text-sm text-start text-black font-worksans font-bold text-balance md:text-wrap w-9/12 md:w-10/12 ml-6 md:ml-10" :class="{ 'text-purple-970': active }">
+                  What Is Frontend Mentor and How It Will Help Me?
+                </span>
+                <img src="./assets/images/icon-plus.svg" alt="Image Icon Plus" class="w-6 h-6" :class="{'hidden': active}">
+                <img src="./assets/images/icon-minus.svg" alt="Image Icon Minus" class="w-6 h-6" :class="{'hidden': !active, 'block': active}">
               </button>
-
+            
+              <p x-show="open" x-transition:enter.duration.300ms x-transition:leave.duration.300ms class="w-11/12 text-gray-400 text-xs md:text-sm text-balance text-center font-worksans font-normal my-3">
+                Frontend Mentor offers realistic coding challenges to help developers improve their frontend coding skills with projects in HTML, CSS, and JavaScript. It's suitable for all levels and ideal for portfolio building.
+              </p>
             </div>
             <!--  Here End First Question -->
+
+            <!--  Second Question -->
+            <div>
+              <button 
+                x-on:click="open_2 = !open_2; active_2 = !active_2" 
+                class="flex justify-items-end items-center w-full mt-6"
+              >
+                <span class="text-sm text-start text-black font-worksans font-bold text-balance md:text-wrap w-9/12 md:w-10/12 ml-6 md:ml-10" :class="{ 'text-purple-970': active_2 }">
+                  Is Frontend Mentor Free?
+                </span>
+                <img src="./assets/images/icon-plus.svg" alt="Image Icon Plus" class="w-6 h-6" :class="{'hidden': active_2}">
+                <img src="./assets/images/icon-minus.svg" alt="Image Icon Minus" class="w-6 h-6" :class="{'hidden': !active_2, 'block': active_2}">
+              </button>
+            
+              <p x-show="open_2" x-transition:enter.duration.300ms x-transition:leave.duration.300ms class="text-gray-400 text-xs md:text-sm text-balance text-center font-worksans font-normal my-3">
+                Yes, Frontend Mentor offers both free and premium coding challenges, with the free option providing access to a range of projects suitable for all skill levels.
+              </p>
+            </div>
+            <!--  Here End Second Question -->
+
+            <!--  Third Question -->
+            <div>
+              <button 
+                x-on:click="open_3 = !open_3; active_3 = !active_3" 
+                class="flex justify-items-end items-center w-full mt-6"
+              >
+                <span class="text-sm text-start text-black font-worksans font-bold text-balance md:text-wrap w-9/12 md:w-10/12 ml-6 md:ml-10" :class="{ 'text-purple-970': active_3 }">
+                  Can I Use Frontend Mentor Projects in my Portfolio?
+                </span>
+                <img src="./assets/images/icon-plus.svg" alt="Image Icon Plus" class="w-6 h-6" :class="{'hidden': active_3}">
+                <img src="./assets/images/icon-minus.svg" alt="Image Icon Minus" class="w-6 h-6" :class="{'hidden': !active_3, 'block': active_3}">
+              </button>
+            
+              <p x-show="open_3" x-transition:enter.duration.300ms x-transition:leave.duration.300ms class="text-gray-400 text-xs md:text-sm text-balance text-center font-worksans font-normal my-3">
+                Yes, you can use projects completed on Frontend Mentor in your portfolio. It's an excellent way to showcase your skills to potential employers!
+              </p>
+            </div>
+            <!--  Here End Third Question -->
+
+            <!--  Fourth Question -->
+            <div>
+              <button 
+                x-on:click="open_4 = !open_4; active_4 = !active_4" 
+                class="flex justify-items-end items-center w-full mt-6"
+              >
+                <span class="text-sm text-start text-black font-worksans font-bold text-balance md:text-wrap w-9/12 md:w-10/12 ml-6 md:ml-10" :class="{ 'text-purple-970': active_4 }">
+                  How Can I get help if i´m stuck on a frontend mentor challenge?
+                </span>
+                <img src="./assets/images/icon-plus.svg" alt="Image Icon Plus" class="w-6 h-6" :class="{'hidden': active_4}">
+                <img src="./assets/images/icon-minus.svg" alt="Image Icon Minus" class="w-6 h-6" :class="{'hidden': !active_4, 'block': active_4}">
+              </button>
+            
+              <p x-show="open_4" x-transition:enter.duration.300ms x-transition:leave.duration.300ms class="text-gray-400 text-xs md:text-sm text-balance text-center font-worksans font-normal my-3">
+                The best place to get help is inside Frontend Mentor's Discord community. There's a help channel where you can ask questions and seek support from other community members.
+              </p>
+            </div>
+            <!--  Here End Fourth Question -->
         </div>
         <!--  Here End FAQ Accordion -->
       </main>
